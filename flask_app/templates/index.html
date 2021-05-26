@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome!</title>
+    <link rel="stylesheet" href="../static/css/index.css">
+</head>
+<body>
+    <img src="../static/images/stellar_banner.png" alt="CranstonWins.">
+    <div class='login'>
+        <div class='register'>
+            <h1>Register!</h1>
+            <form action='/add_user' method='post'>
+                First Name: <input type='text' name='first_name'><br>
+                Email: <input type='text' name='email'><br>
+                Password: <input type='password' name='password'><br>
+                <input type='submit' value='Create User'>
+            </form>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+        </div>
+        <div class='log'>
+            <h1>Login!</h1>
+            <form action='/login' method='post'>
+                Email: <input type='text' name='email'><br>
+                Password: <input type='password' name='password'><br>
+                <input type='submit' value='Login'>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
