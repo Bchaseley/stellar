@@ -1,0 +1,38 @@
+img {
+    width: 75vw;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 5px solid black ;
+}
+
+.navbar {
+    font-family: sans-serif;
+    font-weight: bolder;
+    display: flex;
+    text-align: center;
+    height: 50px;
+    width: 1500px;
+    background-color: aquamarine;
+    justify-content: space-around;
+    align-items: center;
+    margin: auto;
+    border: 2px solid black;
+}
+tr, td, th, table {
+    border: 1px solid black;
+    font-family: sans-serif;
+    font-size: 25px;
+    padding: 10px;
+    margin: auto;
+    margin-top: 100px;
+    text-align: center;
+}
+
+table {
+    background-color: blanchedalmond;
+}
+
+th {
+    background-color: cadetblue;
+}

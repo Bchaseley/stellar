@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Toons</title>
+    <link rel="stylesheet" href="../static/css/dashboard.css">
+</head>
+<body>
+    <img src="../static/images/my_toons.png" alt="">
+    <div class='navbar'>
+        <a href="/dashboard">Home</a>
+        <a href="">Upcoming Events</a>
+        <a href="">Guild Roster</a>
+        <a href="/logout">Logout</a>
+    </div>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Level</th>
+            <th>Class</th>
+            <th>Action</th>
+        </tr>
+        {% for toon in toons %}
+            <tr>
+                <td>{{toon.name}}</td>
+                <td>{{toon.level}}</td>
+                <td>{{toon.class_name}}</td>
+                <td><a href="/edit_toon/{{toon.id}}">Edit</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

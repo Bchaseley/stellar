@@ -11,7 +11,6 @@ class User:
     def __init__(self,data):
         self.id = data['id']
         self.first_name = data['first_name']
-        self.last_name = data['last_name']
         self.email = data['email']
         self.password = data['password']
         self.created_at = data['created_at']
@@ -45,9 +44,6 @@ class User:
         is_valid = True
         if len(user['first_name']) < 3:
             flash("First Name must be at least 3 characters.")
-            is_valid = False
-        if len(user['last_name']) < 3:
-            flash("Last Name must be at least 3 characters.")
             is_valid = False
         if len(user['password']) < 8:
             flash("Password must be at least 8 characters.")    

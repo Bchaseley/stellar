@@ -1,3 +1,4 @@
+from flask_app.models.toon import Toon
 from flask import render_template, request, redirect, session, flash
 from flask_app import app
 from flask_app.config.mysqlconnection import connectToMySQL
@@ -22,7 +23,7 @@ def create():
     }
     user_id = User.add_user(data)
     session['user_id'] = user_id
-    return redirect('/')
+    return redirect('/dashboard')
 
 @app.route('/login', methods=['POST'])
 def login():
@@ -39,9 +40,12 @@ def login():
 
 @app.route('/dashboard')
 def success():
-    shows = Show.display_shows()
-    logged_user = User.get_by_id({'id' : session['user_id']})
-    return render_template('dashboard.html', logged_user = logged_user, shows = shows)
+    return render_template('dashboard.html')
+
+@app.route('/my_toons/<int:user_id>')
+def display_toons(user_id):
+    toons = Toon.display_toons(user_id)
+    return render_template('my_toons.html', toons = toons)
 
 @app.route('/logout')
 def logout():
